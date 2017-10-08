@@ -1,0 +1,16 @@
+//SVG
+@keyframes changeColor {
+  from {
+    fill: white;
+  }
+  50% {
+    fill: slateblue;
+  }
+  to {
+    fill: white;
+  }
+}
+
+.changeColor {
+  animation-name: changeColor;
+}

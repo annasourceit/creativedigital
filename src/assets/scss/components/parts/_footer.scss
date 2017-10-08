@@ -1,0 +1,40 @@
+.footer {
+  height: 185px;
+  background-color: #9f9acf;
+  &__row {
+    @include flex-grid-column(12 , 30);
+    @include flex-grid-row();
+    height: 100%;
+  }
+  &__copyright {
+    @include flex-grid-column(12);
+    color: #ffffff;
+    font-family: $main-font-family;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &__social-icon {
+    @include flex-grid-column(12);
+    .social-icon {
+      justify-content: center;
+    }
+  }
+
+  @include breakpoint(md){
+    &__copyright {
+      @include flex-grid-column(6);
+      justify-content: flex-start;
+    }
+    &__social-icon {
+      @include flex-grid-column(6);
+      .social-icon {
+        justify-content: flex-end;
+      }
+    }
+  }
+}

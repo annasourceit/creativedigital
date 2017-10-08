@@ -1,0 +1,124 @@
+.works {
+  @include bg-img("../img/works-bg.png");
+  padding-bottom: 68px;
+  position: relative;
+  &__row {
+    @include flex-grid-column(12 , 30);
+    @include flex-grid-row();
+    text-align: center;
+  }
+  &__wrapTitleIcon {
+    width: 100%;
+  }
+  &__wrapImg {
+    width: 65%;
+    margin: 0 auto;
+  }
+  &__wrapBtn {
+    width: 100%;
+    text-align: center;
+    margin-top: 66px;
+  }
+}
+.works__icon {
+  margin: 5vh auto 3vh;
+}
+.works__title {
+  @extend .about__title;
+  margin-bottom: 5vh;
+}
+
+.works__linkImg {
+  width: 66%;
+  height: 563px;
+  overflow-y: auto;
+  margin: 0 auto;
+}
+
+.slick-prev {
+  top: 51%;
+  left: 10%;
+  &:before {
+    content: '';
+  }
+}
+.slick-next {
+  top: 51%;
+  right: 10%;
+  &:before {
+    content: '';
+  }
+}
+.first {
+  visibility: hidden;
+}
+@include breakpoint(xlg){
+  .first {
+    visibility: visible;
+  }
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -48px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  li {
+    position: relative;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 3px;
+    padding: 0;
+    cursor: pointer;
+    button {
+      background: transparent;
+      display: block;
+      height: 10px;
+      width: 10px;
+      border-radius: 5px;
+      border: solid 1px white;
+      outline: none;
+      line-height: 0;
+      font-size: 0;
+      color: transparent;
+      padding: 0;
+      cursor: pointer;
+      &:hover, &:focus {
+        outline: none;
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+        color: white;
+      }
+    }
+    &.slick-active button:before {
+      color:white;
+      opacity: 1;
+    }
+  }
+}
+
+.works__btn {
+  @include btn(#ffffff);
+
+}
+
+

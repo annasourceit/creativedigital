@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+html {
+  width: 100%;
+  font-family: $main-font-family;
+  font-size: $sm-font-size;
+}
+

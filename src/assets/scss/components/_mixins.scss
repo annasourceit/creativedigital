@@ -1,0 +1,61 @@
+//Button
+@mixin btn($color) {
+  color: $color;
+  font-family: $main-font-family;
+  font-size: rem-calc(20);
+  font-style: italic;
+  padding: rem-calc(11) rem-calc(52);
+  border: 1px solid $color;
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 rem-calc(10) rgba(0, 0, 0, 0.2);
+  }
+}
+// Breakpoints
+
+@mixin breakpoint($point) {
+
+  @if $point==xs {
+    @media only screen and (max-width: 479px) {
+      @content;
+    }
+  }
+
+  @else if $point==sm {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  }
+
+  @else if $point==md {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $point==lgl {
+    @media only screen and (max-width: 991px) {
+      @content;
+    }
+  }
+
+  @else if $point==lg {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else if $point==xlg {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+//Background image
+@mixin bg-img($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+

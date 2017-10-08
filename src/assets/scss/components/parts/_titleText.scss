@@ -1,0 +1,52 @@
+.header__titleText {
+  margin: 27.7vh auto 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .titleText__title {
+    margin: 0;
+    text-align: center;
+    color: #fefefb;
+    font-family: $headers-font-family;
+    font-size: rem-calc(72);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    padding-left: 20px;
+
+    @include breakpoint(xs){
+      font-size: rem-calc(36);
+    }
+    @include breakpoint(sm){
+      font-size: rem-calc(42);
+    }
+    @include breakpoint(md){
+      font-size: rem-calc(68);
+    }
+  }
+  .titleText__text {
+    margin-top: 1px;
+    color: #fefdfd;
+    width: 70%;
+    text-align: center;
+    font-family: $main-font-family;
+    font-size: rem-calc(29);
+    font-style: italic;
+    letter-spacing: 0.3px;
+    padding: 6px 0 0 3px;
+    line-height: 1.3em;
+
+    @include breakpoint(xs){
+      font-size: rem-calc(15);
+    }
+    @include breakpoint(sm){
+      font-size: rem-calc(20);
+    }
+    @include breakpoint(md){
+      font-size: rem-calc(29);
+    }
+  }
+}

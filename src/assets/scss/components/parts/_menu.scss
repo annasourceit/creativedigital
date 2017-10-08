@@ -1,0 +1,131 @@
+/* DESKTOP NAVBAR */
+.menu__list {
+
+  .list__item {
+    margin-left: rem-calc(20);
+  }
+  .menu__link {
+    color: #ffffff;
+    font-family: $headers-font-family;
+    font-size: rem-calc(24);
+    font-weight: 600;
+    line-height: 60.03px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    letter-spacing: 0.4px;
+    &:hover {
+      color: darken(#ffffff, 10%);
+    }
+  }
+
+  @include breakpoint(lgl){
+    display: none;
+  }
+
+  &--open {
+    @include breakpoint(lgl){
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: rem-calc(120);
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .list__item {
+      @include breakpoint(lgl){
+        margin-left: 0;
+        display: list-item;
+        background-color: white;
+        text-align: center;
+      }
+    }
+    .menu__link {
+      @include breakpoint(lgl){
+        color: slateblue;
+        transition: all 0.3s ease;
+        &:hover {
+          color: lighten(slateblue, 30%);
+        }
+      }
+    }
+  }
+}
+/* MOBILE NAVBAR */
+$bar-width:rem-calc(50);
+$bar-height: rem-calc(5);
+$bar-spacing: rem-calc(15);
+$transition-time: 600ms;
+
+.hamburger-menu {
+  position: absolute;
+  top: rem-calc(56);
+  right: rem-calc(15);
+  margin: auto;
+  width: $bar-width;
+  height: $bar-height + $bar-spacing*2;
+  cursor: pointer;
+  transition: all $transition-time cubic-bezier(0.23, 1, 0.32, 1);
+
+  &.animate {
+    transform: rotate(90deg);
+  }
+  @include breakpoint(xs){
+    display:block;
+  }
+  @include breakpoint(sm){
+    display:block;
+  }
+  @include breakpoint(md){
+    display:block;
+  }
+  @include breakpoint(lg){
+    display: none;
+  }
+
+}
+.bar,
+.bar:after,
+.bar:before {
+  width: $bar-width;
+  height: $bar-height;
+}
+
+.bar {
+  position: relative;
+  transform: translateY($bar-spacing);
+  background: white;
+}
+
+.bar:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: $bar-spacing;
+  background: white;
+  transition: all $transition-time cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bar:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: $bar-spacing;
+  background: white;
+  transition: all $transition-time cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bar.animate:after {
+  width: 30px;
+  transform: rotate(-45deg) translateX(9px);
+}
+
+.bar.animate:before {
+  width: 30px;
+  transform: rotate(45deg) translateX(8px);
+}
+
+.list__item--active {
+  border-top: solid 2px #ffffff ;
+}

@@ -1,0 +1,48 @@
+.header {
+  position: relative;
+  padding-top: rem-calc(35);
+  @include bg-img("../img/headerBG.png");
+  background-attachment: fixed;
+  width: 100%;
+  height: 113vh;
+  &_row {
+    @include flex-grid-column(12 , 30);
+    @include flex-grid-row();
+  }
+  &__logo {
+    @include flex-grid-column(2);
+    padding-left: 24px;
+  }
+  &__menu {
+    @include flex-grid-column(10);
+    text-align: right;
+  }
+}
+.logo {
+  path {
+    fill: white;
+    transition: all 0.5s ease-out;
+    animation-name: changeColor;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite ;
+    animation-play-state: running;
+  }
+
+}
+
+.header--show {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 15vh;
+  z-index: 10;
+}
+
+@include breakpoint(lgl){
+  .header--show {
+    position: absolute;
+    top: -1000px;
+  }
+}
