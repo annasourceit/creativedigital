@@ -14492,6 +14492,7 @@ window.$ = _jquery2.default;
 
 
 (0, _jquery2.default)(document).foundation();
+
 (0, _jquery2.default)(document).ready(function () {
     //----------------------------------------Menu-------------------------------------------------
 
@@ -14500,7 +14501,15 @@ window.$ = _jquery2.default;
         (0, _jquery2.default)('.bar').toggleClass('animate');
         (0, _jquery2.default)('.menu__list').toggleClass('menu__list--open');
     });
-
+    //----------------------------------------Show header-------------------------------------------------
+    (0, _jquery2.default)(window).scroll(function () {
+        if ((0, _jquery2.default)(this).scrollTop() > 1000) {
+            (0, _jquery2.default)('.header--show').fadeIn();
+        } else {
+            (0, _jquery2.default)('.header--show').fadeOut();
+        }
+    });
+    //----------------------------------------Active menu item-------------------------------------------------
     (0, _jquery2.default)(".list__item").on("click", function (event) {
         (0, _jquery2.default)(".list__item").removeClass("list__item--active");
         (0, _jquery2.default)(this).addClass("list__item--active");
@@ -14543,7 +14552,6 @@ window.$ = _jquery2.default;
         (0, _jquery2.default)(".list__item--active").removeClass('list__item--active');
         (0, _jquery2.default)(".menu_" + menu_items[current_index].id).addClass("list__item--active");
 
-        console.log('highlightMenu');
         highLightTimeout = false;
     }
 
@@ -14551,9 +14559,15 @@ window.$ = _jquery2.default;
         for (var i = 1; i < menu_items.length; i++) {
             menu_items[i].offset = (0, _jquery2.default)("#" + menu_items[i].target).offset().top - 10;
         }
-        console.log(menu_items);
-        console.log('getOffsets');
     }
+
+    //----------------------------------------Smooth scroll---------------------------------------
+    (0, _jquery2.default)("[data-scrollto]").on("click", function (event) {
+        event.preventDefault();
+        var el = (0, _jquery2.default)(this).data('scrollto');
+        var top = (0, _jquery2.default)(el).offset().top;
+        (0, _jquery2.default)('body,html').animate({ scrollTop: top }, 1000);
+    });
 
     //----------------------------------------Slider-----------------------------------------------
 
@@ -14599,23 +14613,8 @@ window.$ = _jquery2.default;
             }
         }]
     });
-    //----------------------------------------Smooth scroll---------------------------------------
-    (0, _jquery2.default)("[data-scrollto]").on("click", function (event) {
-        event.preventDefault();
-        var el = (0, _jquery2.default)(this).data('scrollto');
-        var top = (0, _jquery2.default)(el).offset().top;
-        (0, _jquery2.default)('body,html').animate({ scrollTop: top }, 1000);
-    });
+
     //----------------------------------------Scroll top------------------------------------------
-
-    (0, _jquery2.default)(window).scroll(function () {
-        if ((0, _jquery2.default)(this).scrollTop() > 1000) {
-            (0, _jquery2.default)('.header--show').fadeIn();
-        } else {
-            (0, _jquery2.default)('.header--show').fadeOut();
-        }
-    });
-
     (0, _jquery2.default)(window).scroll(function () {
         if ((0, _jquery2.default)(this).scrollTop() > 1000) {
             (0, _jquery2.default)('.arrow-top').fadeIn();
