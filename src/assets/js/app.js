@@ -11,6 +11,7 @@ import './lib/slick';
 
 
 $(document).foundation();
+
 $(document).ready(function() {
     //----------------------------------------Menu-------------------------------------------------
 
@@ -20,7 +21,15 @@ $(document).ready(function() {
         $('.menu__list').toggleClass('menu__list--open');
 
     });
-
+    //----------------------------------------Show header-------------------------------------------------
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 1000) {
+            $('.header--show').fadeIn();
+        } else {
+            $('.header--show').fadeOut();
+        }
+    });
+    //----------------------------------------Active menu item-------------------------------------------------
     $(".list__item").on("click", function(event){
         $(".list__item").removeClass("list__item--active");
         $(this).addClass("list__item--active");
@@ -54,7 +63,7 @@ $(document).ready(function() {
         if (highLightTimeout) {
             clearTimeout(highLightTimeout);
         }
-        highLightTimeout = setTimeout(highlightMenu, 50)
+        highLightTimeout = setTimeout(highlightMenu, 50);
     });
 
     function highlightMenu() {
@@ -69,7 +78,6 @@ $(document).ready(function() {
         $(".list__item--active").removeClass('list__item--active');
         $(".menu_" + menu_items[current_index].id).addClass("list__item--active");
 
-        console.log('highlightMenu');
         highLightTimeout = false;
     }
 
@@ -77,9 +85,15 @@ $(document).ready(function() {
         for (var i = 1; i < menu_items.length; i++) {
             menu_items[i].offset = $("#" + menu_items[i].target).offset().top - 10;
         }
-        console.log(menu_items);
-        console.log('getOffsets');
     }
+
+    //----------------------------------------Smooth scroll---------------------------------------
+    $("[data-scrollto]").on("click", function(event) {
+        event.preventDefault();
+        var el = $(this).data('scrollto');
+        var top = $(el).offset().top;
+        $('body,html').animate({scrollTop: top}, 1000);
+    });
 
     //----------------------------------------Slider-----------------------------------------------
 
@@ -130,23 +144,8 @@ $(document).ready(function() {
 
         ]
     });
-    //----------------------------------------Smooth scroll---------------------------------------
-    $("[data-scrollto]").on("click", function(event) {
-        event.preventDefault();
-        var el = $(this).data('scrollto');
-        var top = $(el).offset().top;
-        $('body,html').animate({scrollTop: top}, 1000);
-    });
+
     //----------------------------------------Scroll top------------------------------------------
-
-    $(window).scroll(function(){
-        if ($(this).scrollTop() > 1000) {
-            $('.header--show').fadeIn();
-        } else {
-            $('.header--show').fadeOut();
-        }
-    });
-
     $(window).scroll(function(){
         if ($(this).scrollTop() > 1000) {
             $('.arrow-top').fadeIn();
